@@ -1,0 +1,69 @@
+.project-container {
+    /* border: 2px solid wheat; */
+    display: inline-block;
+    border: 2px solid wheat;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 40%;
+    overflow: hidden;
+}
+
+.project-item {
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+.project-name {
+    font-family: 'Courier New', Courier, monospace;
+    padding-left: 10px;
+}
+
+.project-img {
+    padding: 10px;
+}
+
+.project-img img {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    height: 50%;
+    width: 50%;
+}
+
+.project-desc {
+    font-style: italic;
+    padding: 10px;
+    color: rgb(162, 178, 177);
+}
+
+.project-tech {
+    max-width: 60%;
+}
+.project-tech span{
+    display: inline-block;
+    border: 1px solid white;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 13px;
+    padding: 0px 5px;
+}
+
+.project-url {
+    margin: 10px;
+}
+
+.project-url span {
+    border: 2px solid white;
+    border-radius: 20px;
+    margin: 5px;
+    font-size: 13px;
+    padding: 1px 5px;
+}
+
+.project-url a {
+    color:azure;
+}
+.project-url a:hover {
+    color: palegreen;
+}

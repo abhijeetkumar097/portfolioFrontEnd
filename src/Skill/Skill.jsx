@@ -1,0 +1,46 @@
+import React, { useEffect, useState } from 'react'
+import './Skill.css'
+function Skill() {
+    const [skills, setSkill] = useState([]);
+
+    useEffect(() => {
+        fetch(import.meta.env.VITE_SKILL_URL)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => { setSkill(data)})
+            .catch((error) => {
+                console.error(error);
+            });
+    }, []);
+
+
+
+    return (
+        <div>
+            <h2>Skills</h2>
+            <div className='container'>
+                {skills.map((skill, index) => (
+                    <div key={index} style={{ textAlign: 'center' }}>
+                        <div className='circle'
+                            style={{
+                                background: `conic-gradient(${skill.proficiency > 33 ? 'green' : 'red'} ${skill.proficiency * 3.6}deg, #e0e0e0 0deg)`,
+                            }}
+                        >
+                            <div className='inner-circle'>{skill.proficiency}%</div>
+
+                        </div>
+                        <div>{skill.name}</div>
+                    </div>
+                ))}
+            </div>
+        </div>
+
+
+    )
+}
+
+export default Skill
