@@ -1,17 +1,20 @@
 .project-container {
     /* border: 2px solid wheat; */
-    display: inline-block;
+    display: flex;
     border: 2px solid wheat;
     border-radius: 10px;
     padding: 20px;
-    max-width: 40%;
-    overflow: hidden;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
 }
 
 .project-item {
     border: 2px solid white;
     border-radius: 10px;
     margin: 20px;
+    overflow: hidden;
+    max-width: 500px;
 }
 
 .project-name {
@@ -27,7 +30,6 @@
     display: block;
     margin: 0 auto;
     padding: 10px;
-    height: 50%;
     width: 50%;
 }
 
@@ -50,6 +52,8 @@
 }
 
 .project-url {
+    display: flex;
+    flex-wrap: wrap;
     margin: 10px;
 }
 
@@ -63,7 +67,29 @@
 
 .project-url a {
     color:azure;
+    text-decoration: none;
 }
 .project-url a:hover {
     color: palegreen;
+}
+
+
+@media screen and (max-width: 800px){
+    .project-container {
+        /* border: 2px solid wheat; */
+        display: flex;
+        border: 2px solid wheat;
+        border-radius: 10px;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0px;
+    }
+    .project-item {
+        border: 2px solid white;
+        border-radius: 10px;
+        margin: 20px;
+        max-width: 80%;
+    }
 }

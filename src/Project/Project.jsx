@@ -27,8 +27,8 @@ function Project() {
         {projects.map((project) => (
             <div className="project-item">
                 <div className="project-img">
-                    {/* <img src={project.imgUrl} height="100px" onError={(e) => {e.target.style.display = 'none';}}/> */}
-                    <img src="src\assets\react.svg" alt="image" height="100px"/>
+                    {/* <img src={project.imgUrl} onError={(e) => {e.target.style.display = 'none';}}/> */}
+                    <img src="src\assets\react.svg" onError={(e) => {e.target.style.display = 'none';}}/>
                 </div>
                 <div className='project-name'>{project.name}</div>
                 <div className='project-desc'>{project.description}</div>

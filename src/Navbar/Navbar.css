@@ -1,0 +1,25 @@
+.navbar {
+    display: grid;
+    grid-template-rows: auto fr;
+    border: 2px solid white;
+    margin-bottom: 40px;
+    padding: 10px;
+    border-top: none;
+}
+.nav-title {
+    font-weight: bold;
+    font-size: 20px;
+}
+nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+.active-link {
+    color: rgb(0, 214, 218);
+}

@@ -1,10 +1,12 @@
 .certificate-container {
-    display: inline-block;
+    display: flex;
+    align-items: center;
     border: 2px solid wheat;
     border-radius: 10px;
     padding: 20px;
-    max-width: 40%;
-    overflow: hidden;
+    /* max-width: 40%; */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .certificate-item {
@@ -20,7 +22,7 @@
 }
 
 
-@media screen and (max-width: 585px) {
+/* @media screen and (max-width: 585px) {
     .certificate-container {
         display: block;
         border: 2px solid wheat;
@@ -29,4 +31,4 @@
         max-width: 100vw;
         width: 100vw;
     }
-}
+} */
