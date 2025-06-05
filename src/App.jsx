@@ -1,41 +1,87 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import Skill from './Skill/Skill'
-import Education from './Education/Education'
-import FrontPage from './FrontPage/FrontPage'
-import Certificate from './Certificate/Certificate'
-import Project from './Project/Project'
-import Navbar from './Navbar/Navbar'
-import Contact from './Contact/Contact'
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 
-function App() {
-  const [count, setCount] = useState(0)
+import Navbar from './Navbar/Navbar';
+import Skill from './Skill/Skill';
+import Education from './Education/Education';
+import FrontPage from './FrontPage/FrontPage';
+import Certificate from './Certificate/Certificate';
+import Project from './Project/Project';
+import Contact from './Contact/Contact';
+
+function AnimatedRoutes() {
+  const location = useLocation();
 
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<FrontPage />}/>
-          <Route path="/project" element={<Project />}/>
-          <Route path="/about" element={<><Education /><Skill /><Certificate /></>}/>
-          <Route path="/contact" element={<Contact />}/>
-        </Routes>
-      </Router>
-      {/* <Skill />
-      <Certificate />
-      <Education />
-      <Project />  */}
-      {/* <FrontPage /> */}
-        {/* <Education />
-        <Certificate /> */}
-      
-      
-    </>
-  )
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route
+          path="/"
+          element={
+            <motion.div
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '-100%', opacity: 0 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <FrontPage />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/project"
+          element={
+            <motion.div
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '-100%', opacity: 0 }}
+              transition={{ duration: 1, ease: "anticipate" }}
+            >
+              <Project />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <motion.div
+              initial={{ y: '-100vh', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '-100vh', opacity: 0 }}
+              transition={{ duration: 1, ease: 'easeInOut' }}
+            >
+              <Education />
+              <Skill />
+              <Certificate />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <motion.div
+              initial={{ y: '100%', opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: '-100%', opacity: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <Contact />
+            </motion.div>
+          }
+        />
+      </Routes>
+    </AnimatePresence>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <Navbar />
+      <AnimatedRoutes />
+    </Router>
+  );
+}
+
+export default App;

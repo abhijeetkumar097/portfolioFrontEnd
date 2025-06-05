@@ -13,7 +13,6 @@ function Certificate() {
         })
         .then((data) => {
             setCertificate(data);
-            console.log(data);
         })
         .catch((error) => {
             console.error(error);

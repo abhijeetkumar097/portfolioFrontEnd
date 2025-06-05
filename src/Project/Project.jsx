@@ -13,7 +13,6 @@ function Project() {
             })
             .then((data) => {
                 setProject(data);
-                console.log(data);
             })
             .catch((error) => {
                 console.error(error);
@@ -24,8 +23,8 @@ function Project() {
     //id, name, description, imgUrl, githubUrl1, githubUrl2, liveUrl, techStack
     <fieldset className='project-container'>
         <legend>Project</legend>
-        {projects.map((project) => (
-            <div className="project-item">
+        {projects.map((project, index) => (
+            <div key={index} className="project-item">
                 <div className="project-img">
                     {/* <img src={project.imgUrl} onError={(e) => {e.target.style.display = 'none';}}/> */}
                     <img src="src\assets\react.svg" onError={(e) => {e.target.style.display = 'none';}}/>

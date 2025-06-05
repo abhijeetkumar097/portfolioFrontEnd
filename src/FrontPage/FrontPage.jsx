@@ -14,7 +14,6 @@ function FrontPage() {
         })
         .then((data) => {
             setPage(data);
-            console.log(data);
         })
         .catch((error) => {
             console.error("Error fetching ", error);
@@ -46,13 +45,14 @@ function FrontPage() {
                         </a>
                     ))}
                 </div>
-                <fieldset className='page-feildSet'>
+            </div>
+            <fieldset className='page-feildSet'>
                     <legend>About</legend>
                     <div>{field.about}</div>
                 </fieldset>
-            </div>
         </>
         ))}
+        
     </div>
   )
 }

@@ -20,26 +20,22 @@ function Skill() {
 
 
     return (
-        <div>
-            <h2>Skills</h2>
-            <div className='container'>
-                {skills.map((skill, index) => (
-                    <div key={index} style={{ textAlign: 'center' }}>
-                        <div className='circle'
-                            style={{
-                                background: `conic-gradient(${skill.proficiency > 33 ? 'green' : 'red'} ${skill.proficiency * 3.6}deg, #e0e0e0 0deg)`,
-                            }}
-                        >
-                            <div className='inner-circle'>{skill.proficiency}%</div>
+        <fieldset className='container'>
+            <legend>Skills</legend>
+            {skills.map((skill, index) => (
+                <div key={index} style={{ textAlign: 'center' }}>
+                    <div className='circle'
+                        style={{
+                            background: `conic-gradient(${skill.proficiency > 33 ? 'green' : 'red'} ${skill.proficiency * 3.6}deg, #e0e0e0 0deg)`,
+                        }}
+                    >
+                        <div className='inner-circle'>{skill.proficiency}%</div>
 
-                        </div>
-                        <div>{skill.name}</div>
                     </div>
-                ))}
-            </div>
-        </div>
-
-
+                    <div>{skill.name}</div>
+                </div>
+            ))}
+        </fieldset>
     )
 }
 
