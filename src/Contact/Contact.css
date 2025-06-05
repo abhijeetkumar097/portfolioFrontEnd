@@ -56,3 +56,24 @@ textarea::placeholder {
 .contact-item button:hover {
   background-color: #82e7c0;
 }
+
+.success-msg {
+  color: #155724;
+  background: #d4edda;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.error-msg {
+  color: #721c24;
+  background: #f8d7da;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.contact-item button[disabled] {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
