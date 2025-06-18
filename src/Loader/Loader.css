@@ -1,0 +1,40 @@
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    font-weight: 500;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border-style: groove;
+    background-color: transparent;
+    border: transparent;
+    animation: pulse 4s infinite linear;
+    box-shadow:
+        0 -4px 8px red,    /* Top shadow */
+        0 4px 8px blue; 
+}
+
+.loader:hover {
+    background-color: transparent;
+    border: none;  
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        color: transparent;
+    }
+    50% {
+        transform: scale(2) translateZ(899px);
+        color: white;
+    }
+}

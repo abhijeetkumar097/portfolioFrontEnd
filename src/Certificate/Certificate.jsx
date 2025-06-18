@@ -3,21 +3,29 @@ import './Certificate.css'
 function Certificate() {
     const [certificates, setCertificate] = useState([]);
 
-    useEffect(() => {
-        fetch(import.meta.env.VITE_CERTIFICATE_URL)
-        .then((response) => {
-            if(!response.ok) {
-                throw new Error("Network status was not ok");
-            }
-            return response.json();
-        })
-        .then((data) => {
-            setCertificate(data);
-        })
-        .catch((error) => {
-            console.error(error);
-        })
-    }, []);
+   useEffect(() => {
+     const cacheCertificate = sessionStorage.getItem('certificates');
+ 
+     if(cacheCertificate) {
+       setCertificate(JSON.parse(cacheCertificate));
+     }
+     else {
+         fetch(import.meta.env.VITE_CERTIFICATE_URL)
+         .then((response) => {
+           if(!response.ok) {
+             throw new Error("Network response was not ok")
+           }
+           return response.json();
+         })
+         .then((data) => {
+           setCertificate(data);
+           sessionStorage.setItem('certificates', JSON.stringify(data));
+         })
+         .catch((err) => {
+           console.error(err);
+         })
+       }
+   }, []);
 
   return (
     //name, provider, duration, url

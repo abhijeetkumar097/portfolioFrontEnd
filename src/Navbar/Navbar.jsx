@@ -5,8 +5,8 @@ import { NavLink } from 'react-router-dom'
 function Navbar() {
   return (
     <div className='navbar'>
-        <div className='nav-title'>PortFolio</div>
-        <nav>
+        <NavLink to="/login" className='nav-title'>PortFolio</NavLink>
+        <nav className='nav'>
             <NavLink to="/" className={({isActive}) => isActive ? "active-link" : ""}>Home</NavLink>
             <NavLink to="/project" className={({isActive}) => isActive ? "active-link" : ""}>Project</NavLink>
             <NavLink to="/about" className={({isActive}) => isActive ? "active-link" : ""}>About</NavLink>

@@ -5,19 +5,27 @@ function Education() {
   const [educations, setEducation] = useState([]);
 
   useEffect(() => {
-    fetch(import.meta.env.VITE_EDUCATION_URL)
-    .then((response) => {
-      if(!response.ok) {
-        throw new Error("Network response was not ok")
+    const cacheEducation = sessionStorage.getItem('education');
+
+    if(cacheEducation) {
+      setEducation(JSON.parse(cacheEducation));
+    }
+    else {
+        fetch(import.meta.env.VITE_EDUCATION_URL)
+        .then((response) => {
+          if(!response.ok) {
+            throw new Error("Network response was not ok")
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setEducation(data);
+          sessionStorage.setItem('education', JSON.stringify(data));
+        })
+        .catch((err) => {
+          console.error(err);
+        })
       }
-      return response.json();
-    })
-    .then((data) => {
-      setEducation(data);
-    })
-    .catch((err) => {
-      console.error(err);
-    })
   }, []);
 
   return (

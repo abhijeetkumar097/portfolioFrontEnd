@@ -4,19 +4,26 @@ function Project() {
     const [projects, setProject] = useState([]);
 
     useEffect(() => {
-            fetch(import.meta.env.VITE_PROJECT_URL)
-            .then((response) => {
-                if(!response.ok) {
-                    throw new Error("Network status was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => {
-                setProject(data);
-            })
-            .catch((error) => {
-                console.error(error);
-            })
+             const cachedProjects = sessionStorage.getItem('projects');
+
+            if (cachedProjects) {
+                setProject(JSON.parse(cachedProjects));
+            } else {
+                fetch(import.meta.env.VITE_PROJECT_URL)
+                    .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                    })
+                    .then((data) => {
+                    setProject(data);
+                    sessionStorage.setItem('projects', JSON.stringify(data));
+                    })
+                    .catch((error) => {
+                    console.error('Error fetching projects:', error);
+                    });
+            }
         }, []);
 
   return (
@@ -26,8 +33,8 @@ function Project() {
         {projects.map((project, index) => (
             <div key={index} className="project-item">
                 <div className="project-img">
-                    {/* <img src={project.imgUrl} onError={(e) => {e.target.style.display = 'none';}}/> */}
-                    <img src="src\assets\react.svg" onError={(e) => {e.target.style.display = 'none';}}/>
+                    <img src={project.imgUrl} onError={(e) => {e.target.style.display = 'none';}}/>
+                    {/* <img src="src\assets\react.svg" onError={(e) => {e.target.style.display = 'none';}}/> */}
                 </div>
                 <div className='project-name'>{project.name}</div>
                 <div className='project-desc'>{project.description}</div>

@@ -1,23 +1,32 @@
 import React, { useEffect, useState } from 'react'
 import reactLogo from '../assets/1739182318351.jpg'
 import './FrontPage.css'
+
 function FrontPage() {
     const [page, setPage] = useState([]);
-
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(import.meta.env.VITE_FPAGE_URL)
-        .then((response) => {
-            if(!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response.json();
-        })
-        .then((data) => {
-            setPage(data);
-        })
-        .catch((error) => {
-            console.error("Error fetching ", error);
-        })
+        const cachePage = sessionStorage.getItem('page');
+
+        if(cachePage) {
+            setPage(JSON.parse(cachePage));
+        }else {
+            fetch(import.meta.env.VITE_FPAGE_URL)
+            .then((response) => {
+                if(!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setPage(data);
+                sessionStorage.setItem('page', JSON.stringify(data));
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Error fetching ", error);
+            })
+        }
     }, []);
 
   return (

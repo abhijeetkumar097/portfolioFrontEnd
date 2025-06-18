@@ -1,0 +1,162 @@
+:root {
+    --bg-color: black;
+    --card-bg: #1e1e1e;
+    --border-color: #333;
+    --text-color: #f5f5f5;
+    --input-bg: #2c2c2c;
+    --input-border: #444;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --button-bg: #444;
+    --button-hover-bg: #686a78;
+    --edit-bg: #7c8389;
+    --edit-hover: #243443;
+}
+
+
+.admin-add {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.admin-add form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    width: 90%;
+    max-width: 600px;
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+}
+
+.admin-add form input,
+.admin-add form textarea,
+.admin-add form button,
+.admin-element form input,
+.admin-element form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--input-border);
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-add form button {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.admin-add form button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.admin-element {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.admin-element h3 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #ddd;
+    margin-top: 40px;
+}
+
+.admin-element form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--card-bg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.button-edit {
+    background-color: var(--edit-bg);
+    color: var(--text-color);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.button-edit:hover {
+    background-color: var(--edit-hover);
+}
+
+.button-delete {
+    background-color: var(--error-color);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.button-delete:hover {
+    background-color: #c82333;
+}
+
+.button-cross {
+    background-color: transparent;
+    display: inline-block;
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.message > div {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg);
+    color: white;
+    border-left: 5px solid;
+}
+
+.message > div:nth-child(1) {
+    border-color: var(--success-color);
+}
+
+.message > div:nth-child(2) {
+    border-color: var(--error-color);
+}

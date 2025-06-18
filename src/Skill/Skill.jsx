@@ -4,17 +4,24 @@ function Skill() {
     const [skills, setSkill] = useState([]);
 
     useEffect(() => {
-        fetch(import.meta.env.VITE_SKILL_URL)
-            .then((response) => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
-                return response.json();
-            })
-            .then((data) => { setSkill(data)})
-            .catch((error) => {
-                console.error(error);
+        const cacheSkills = sessionStorage.getItem('skills');
+        
+        if(cacheSkills) {
+            setSkill(JSON.parse(cacheSkills));
+        }
+        else {
+            fetch(import.meta.env.VITE_SKILL_URL)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((data) => { setSkill(data); sessionStorage.setItem('skills', JSON.stringify(data));})
+                .catch((error) => {
+                    console.error(error);
             });
+        }
     }, []);
 
 
