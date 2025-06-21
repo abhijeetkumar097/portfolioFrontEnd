@@ -13,6 +13,11 @@
     border: 2px solid white;
     padding: 50px;
     border-radius: 10px;
+    width: 400px;
+}
+
+.login_form input {
+    width: 100%;
 }
 
 .login_button {
@@ -31,4 +36,12 @@
 
 .login_error {
     color: var(--error-color);
+}
+
+
+@media screen and (max-width: 500px){
+    .login_form {
+        width: 70%;
+        overflow: hidden;
+    }
 }
