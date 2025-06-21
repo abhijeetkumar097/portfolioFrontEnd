@@ -50,6 +50,7 @@ function AdminProject() {
         setError("Something went wrong, try again later...");
         setSuccess('');
       });
+
   };
 
   const delte = async (proj) => {
@@ -96,6 +97,15 @@ function AdminProject() {
             liveUrl: liveUrlRef.current.value,
             techStack: techStackArray,
           }, true);
+
+          nameRef.current.value = "";
+          descriptionRef.current.value = '';
+          imgUrlRef.current.value = '';
+          githubUrl1Ref.current.value = '';
+          githubUrl2Ref.current.value = '';
+          liveUrlRef.current.value = '';
+          techStackRef.current.value = '';
+
         }}>
           <h3>Add Project</h3>
           <label>Name</label>

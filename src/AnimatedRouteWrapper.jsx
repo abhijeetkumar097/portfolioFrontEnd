@@ -14,6 +14,7 @@ import AdminFrontPage from './Admin/AdminFrontPage';
 import AdminSkill from './Admin/AdminSkill';
 import AdminProject from './Admin/AdminProject';
 import AdminEducation from './Admin/AdminEducation';
+import AdminUpdate from './Admin/AdminUpdate';
 
 function AnimatedRouteWrapper() {
   const location = useLocation();
@@ -93,7 +94,8 @@ function AnimatedRouteWrapper() {
             <Route path='/admin/skill' element={isAuthenticated ? (<AdminSkill />) : (<Navigate to={"/dashboard"} />)}/>
             <Route path='/admin/project' element={isAuthenticated ? (<AdminProject />) : (<Navigate to={"/dashboard"} />)}/>
             <Route path='/admin/education' element={isAuthenticated ? (<AdminEducation />) : (<Navigate to={"/dashboard"} />)}/>
-            <Route path='/logout' element={isAuthenticated ? (<Navigate to={"/dashboard"} />) : (<Navigate to={"/login"} />)}/>
+            <Route path='/admin/update' element={isAuthenticated ? (<AdminUpdate />) : (<Navigate to={"/login"} />)}/>
+            <Route path='/logout' element={isAuthenticated ? (<Navigate to={"/dashboard"} />) : (<Navigate to={"/dashboard"} />)}/>
             
           
       </Routes>

@@ -4,14 +4,22 @@
     border-bottom: 2px solid white;
     margin-bottom: 40px;
     padding: 10px;
-    
 }
+
 .nav-title {
     font-weight: bold;
     font-size: 20px;
     text-decoration: none;
     color: white;
 }
+
+.nav-drop {
+    display: flex;
+}
+.nav-symbol {
+    display: none;
+}
+
 .nav {
     display: flex;
     justify-content: flex-end;
@@ -24,4 +32,66 @@ nav a {
 
 .active-link {
     color: rgb(0, 214, 218);
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 500px) {
+  .nav-symbol {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 18px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .nav-symbol span {
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-symbol.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-symbol.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-symbol.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  .navbar {
+    max-height: 40px;
+    overflow: hidden;
+    width: 100vw;
+    transition: max-height 0.5s ease-in-out;
+  }
+
+  .navbar.open {
+    max-height: 300px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .nav-drop {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .nav-drop div {
+    color: white;
+  }
 }

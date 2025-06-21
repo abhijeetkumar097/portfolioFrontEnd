@@ -21,7 +21,6 @@ function AdminCertificate() {
       })
       .then((data) => setCertificates(data))
       .catch((err) => {
-        console.error(err);
         setError("Failed to fetch certificates.");
       });
   };

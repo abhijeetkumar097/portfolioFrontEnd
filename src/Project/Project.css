@@ -15,6 +15,10 @@
     margin: 20px;
     overflow: hidden;
     max-width: 500px;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: white;
+    padding: 5px;
 }
 
 .project-name {
@@ -24,16 +28,19 @@
 
 .project-img {
     padding: 10px;
+    border-bottom: 1px solid black;
+    margin: 5px;
 }
 
 .project-img img {
     width: 100%;
+    margin-bottom: 0px;
 }
 
 .project-desc {
     font-style: italic;
     padding: 10px;
-    color: rgb(162, 178, 177);
+    color: rgb(118, 130, 129);
 }
 
 .project-tech {
@@ -41,11 +48,13 @@
 }
 .project-tech span{
     display: inline-block;
-    border: 1px solid white;
     border-radius: 20px;
     margin: 5px;
     font-size: 13px;
     padding: 0px 5px;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
 }
 
 .project-url {
@@ -63,11 +72,11 @@
 }
 
 .project-url a {
-    color:azure;
+    color:rgb(0, 0, 0);
     text-decoration: none;
 }
 .project-url a:hover {
-    color: palegreen;
+    color: rgb(74, 106, 108);
 }
 
 

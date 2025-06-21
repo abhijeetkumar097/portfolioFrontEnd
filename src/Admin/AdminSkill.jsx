@@ -101,6 +101,10 @@ function AdminSkill() {
             name: nameRef.current.value,
             proficiency: parseInt(proficiencyRef.current.value),
           }, true);
+          
+          typeRef.current.value = "";
+          nameRef.current.value = "";
+          proficiencyRef.current.value = "";
         }}>
           <h3>Add Skill</h3>
           <label>Type</label>

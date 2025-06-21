@@ -93,6 +93,15 @@ function AdminEducation() {
             description: descriptionRef.current.value,
             duration: durationRef.current.value,
           }, true);
+
+          instituteNameRef.current.value = '';
+          degreeRef.current.value = '';
+          addressRef.current.value = '';
+          pincodeRef.current.value = '';
+          cgpaRef.current.value = '';
+          percentageRef.current.value = '';
+          descriptionRef.current.value = '';
+          durationRef.current.value = '';
         }}>
           <h3>Add Education</h3>
           <label>Institute Name</label>
@@ -102,7 +111,7 @@ function AdminEducation() {
           <label>Address</label>
           <input type="text" ref={addressRef} required />
           <label>Pincode</label>
-          <input type="text" ref={pincodeRef} required />
+          <input type="text" ref={pincodeRef} />
           <label>CGPA</label>
           <input type="text" ref={cgpaRef} />
           <label>Percentage</label>
@@ -141,7 +150,7 @@ function AdminEducation() {
             <input type="text" name="instituteName" defaultValue={edu.instituteName} required />
             <input type="text" name="degree" defaultValue={edu.degree} required />
             <input type="text" name="address" defaultValue={edu.address} required />
-            <input type="text" name="pincode" defaultValue={edu.pincode} required />
+            <input type="text" name="pincode" defaultValue={edu.pincode} />
             <input type="text" name="cgpa" defaultValue={edu.cgpa} />
             <input type="text" name="percentage" defaultValue={edu.percentage} />
             <input type="text" name="description" defaultValue={edu.description} />

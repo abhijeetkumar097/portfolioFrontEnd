@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import reactLogo from '../assets/1739182318351.jpg'
 import './FrontPage.css'
+import Education from '../Education/Education';
 
 function FrontPage() {
     const [page, setPage] = useState([]);
@@ -59,6 +60,8 @@ function FrontPage() {
                     <legend>About</legend>
                     <div>{field.about}</div>
                 </fieldset>
+            
+            <Education />
         </>
         ))}
         

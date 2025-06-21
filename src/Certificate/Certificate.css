@@ -1,7 +1,7 @@
 .certificate-container {
     display: flex;
     align-items: center;
-    border: 2px solid wheat;
+    border: 2px solid rgb(79, 94, 123);
     border-radius: 10px;
     padding: 20px;
     /* max-width: 40%; */
@@ -9,19 +9,55 @@
     justify-content: center;
 }
 
+.cert-inner-container {
+    border: 2px solid rgb(44, 55, 80);
+    padding: 20px;
+    width: auto;
+    display: grid;
+    /* grid-area:
+        "certificate-info  certificate-view"; */
+
+    grid-template-areas: 
+        "certificate-info  certificate-view";
+    
+    gap: 20px;
+    border-radius: 10px;
+}
+
+
 .certificate-item {
     padding: 10px;
 }
 
 .certificate-name {
     color: aquamarine;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bold;
 }
 
 .certificate-provider {
     font-style: italic;
 }
 
+.certificate-duration {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 12px;
+    padding: 2px;
+}
 
+.certificate-view {
+    direction: rtl;
+    width: fit-content;
+    /* border: 2px solid seagreen; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+
+}
+/* .certificate-view a, button {
+    width: fit-content;
+} */
 /* @media screen and (max-width: 585px) {
     .certificate-container {
         display: block;

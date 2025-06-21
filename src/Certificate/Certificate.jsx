@@ -34,11 +34,17 @@ function Certificate() {
         <legend>Certificate</legend>
         {certificates.map((certificate, index) => (
             <div key={index} className='certificate-item'>
-                <div className='certificate-name'>{certificate.name} <span>({certificate.duration})</span></div>
-                <div className='certificate-provider'>{certificate.provider}</div>
-                <div>
-                    <iframe src={`${certificate.url}/preview`}></iframe>
-                </div>
+              <div className="cert-inner-container">
+                  <div className='certificate-info'>
+                      <div className='certificate-name'>{certificate.name}</div>
+                      <div className='certificate-duration'>{certificate.duration}</div>
+                      <div className='certificate-provider'>{certificate.provider}</div>
+                  </div>
+        
+                  <div className='certificate-view'>
+                      <a href={`${certificate.url}`}><button>View</button></a>
+                  </div>
+              </div>
             </div>
         ))}
     </fieldset>
