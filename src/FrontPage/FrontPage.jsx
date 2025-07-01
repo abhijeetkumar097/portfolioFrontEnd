@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import reactLogo from '../assets/1739182318351.jpg'
 import './FrontPage.css'
 import Education from '../Education/Education';
+import Skill from '../Skill/Skill'
+import Project from '../Project/Project'
+import Certificate from '../Certificate/Certificate'
 
 function FrontPage() {
     const [page, setPage] = useState([]);
@@ -62,6 +65,9 @@ function FrontPage() {
                 </fieldset>
             
             <Education />
+            <Certificate />
+            <Skill />
+            <Project />
         </>
         ))}
         
